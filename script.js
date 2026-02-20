@@ -58,7 +58,27 @@ function generateExcuse() {
     document.getElementById("result").innerText = "👉 " + excuse;
     document.getElementById("score").innerText = "Believability Score: " + confidence + "%";
 }
+// Create glitter particles
+function createGlitter() {
 
+    const intro = document.getElementById("intro");
+
+    for (let i = 0; i < 40; i++) {
+
+        const dot = document.createElement("div");
+        dot.classList.add("glitter");
+
+        dot.style.top = Math.random() * 100 + "%";
+        dot.style.left = Math.random() * 100 + "%";
+
+        dot.style.animationDelay = Math.random() * 3 + "s";
+
+        intro.appendChild(dot);
+    }
+}
+
+// Run when page loads
+window.addEventListener("load", createGlitter);
 
 // ✅ Cinematic intro runs when page loads
 window.addEventListener("load", () => {
