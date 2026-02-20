@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SorryNotSorry</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<!-- Left Section -->
+<div class="left">
+    <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12" alt="Person">
+</div>
+
+<!-- Right Section -->
+<div class="right">
+
+    <div class="tag">SorryNotSorry</div>
+    <h1>Oops! Need an Excuse?</h1>
+
+    <p>Select your situation and audience. We'll generate a believable excuse for you.</p>
+
+    <label>Situation:</label>
+    <select id="situation">
+        <option value="late">Late Assignment</option>
+        <option value="meeting">Missed Meeting</option>
+        <option value="gym">Skipped Gym</option>
+    </select>
+
+    <label>Audience:</label>
+    <select id="audience">
+        <option value="teacher">Teacher</option>
+        <option value="boss">Boss</option>
+        <option value="friend">Friend</option>
+    </select>
+
+    <button class="btn" onclick="generateExcuse()">GENERATE</button>
+
+    <div class="result" id="result"></div>
+    <div class="score" id="score"></div>
+
+</div>
+
+<!-- Link JS -->
+<script src="script.js"></script>
+
+</body>
+</html>
