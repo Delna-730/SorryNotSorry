@@ -69,3 +69,101 @@ p {
     background: black;
     color: white;
 }
+
+/* INTRO SCREEN */
+#intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, #1a1a1a, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+/* Background cinematic zoom effect */
+#intro::before {
+    content: "";
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: linear-gradient(120deg, #ff5722, #1e88e5);
+    filter: blur(120px);
+    opacity: 0.25;
+    animation: bgZoom 6s ease-in-out infinite alternate;
+}
+
+@keyframes bgZoom {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(1.3);
+    }
+}
+
+/* Content */
+.cinema-content {
+    text-align: center;
+    color: white;
+    z-index: 2;
+}
+
+/* Title */
+.cinema-title {
+    font-size: 64px;
+    letter-spacing: 4px;
+    opacity: 0;
+    transform: translateY(40px);
+    animation: titleReveal 2s ease forwards;
+}
+
+/* Subtitle */
+.cinema-sub {
+    margin-top: 20px;
+    font-size: 18px;
+    opacity: 0;
+    animation: subtitleReveal 2s ease forwards;
+    animation-delay: 1.5s;
+}
+
+/* Animated Line */
+.cinema-line {
+    width: 0;
+    height: 3px;
+    background: #ff5722;
+    margin: 20px auto;
+    animation: lineGrow 1.5s ease forwards;
+    animation-delay: 1s;
+}
+
+/* Animations */
+@keyframes titleReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        text-shadow: 0 0 20px rgba(255, 87, 34, 0.8);
+    }
+}
+
+@keyframes subtitleReveal {
+    to {
+        opacity: 0.9;
+    }
+}
+
+@keyframes lineGrow {
+    to {
+        width: 200px;
+    }
+}
+
+/* Fade Out */
+#intro.fade-out {
+    opacity: 0;
+    transition: opacity 1.2s ease;
+}

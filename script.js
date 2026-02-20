@@ -43,6 +43,7 @@ const excuses = {
     }
 };
 
+
 function generateExcuse() {
 
     const situation = document.getElementById("situation").value;
@@ -57,3 +58,20 @@ function generateExcuse() {
     document.getElementById("result").innerText = "👉 " + excuse;
     document.getElementById("score").innerText = "Believability Score: " + confidence + "%";
 }
+
+
+// ✅ Cinematic intro runs when page loads
+window.addEventListener("load", () => {
+
+    setTimeout(() => {
+
+        const intro = document.getElementById("intro");
+
+        intro.classList.add("fade-out");
+
+        setTimeout(() => {
+            intro.style.display = "none";
+        }, 1200);
+
+    }, 5000); // 10 seconds
+});
