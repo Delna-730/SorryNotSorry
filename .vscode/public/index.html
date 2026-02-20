@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <title>SorryNotSorry</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Link CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <!-- Cinematic Intro -->
+
 <div id="intro">
     <div class="cinema-content">
         <h1 class="cinema-title">SorryNotSorry</h1>
@@ -20,50 +17,34 @@
 </div>
 
 <div class="left">
-
-    <!-- Floating Emojis -->
     <div class="emoji-container">
-        <span>😩</span>
-        <span>😤</span>
-        <span>😵</span>
-        <span>🤯</span>
-        <span>😓</span>
-        <span>🙄</span>
+        <span>😩</span><span>😤</span><span>😵</span>
+        <span>🤯</span><span>😓</span><span>🙄</span>
     </div>
-
 </div>
 
-<!-- Right Section -->
 <div class="right">
-
     <div class="tag">SorryNotSorry</div>
     <h1>Oops! Need an Excuse?</h1>
-
-    <p>Select your situation and audience. We'll generate a believable excuse for you.</p>
+    <p>Type your specific situation and select your audience.</p>
 
     <label>Situation:</label>
-    <select id="situation">
-        <option value="late">Late Assignment</option>
-        <option value="meeting">Missed Meeting</option>
-        <option value="gym">Skipped Gym</option>
-    </select>
+    <input type="text" id="situation" placeholder="e.g., Cat locked me in the bathroom" style="padding:12px; margin-bottom:20px; border-radius:10px; border:none; width: 100%;">
 
     <label>Audience:</label>
     <select id="audience">
         <option value="teacher">Teacher</option>
         <option value="boss">Boss</option>
         <option value="friend">Friend</option>
+        <option value="partner">Partner</option>
     </select>
 
     <button class="btn" onclick="generateExcuse()">GENERATE</button>
 
     <div class="result" id="result"></div>
     <div class="score" id="score"></div>
-
 </div>
 
-<!-- Link JS -->
 <script src="script.js"></script>
-
 </body>
 </html>
