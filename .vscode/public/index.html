@@ -2,49 +2,149 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SorryNotSorry</title>
+    <title>SorryNotSorry | AI Excuse Coach</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { display: flex; height: 100vh; background: #05060f; color: white; overflow: hidden; }
+
+        /* INTRO SCREEN */
+        #intro {
+            position: fixed; width: 100%; height: 100%; background: #02030a;
+            display: flex; justify-content: center; align-items: center; z-index: 9999;
+        }
+        .cinema-title { font-size: 64px; letter-spacing: 4px; }
+        #intro.fade-out { opacity: 0; transition: 1.2s; pointer-events: none; }
+
+        /* LEFT SIDE: VISION COACH */
+        .left { width: 50%; background: #0b0f2a; position: relative; display: flex; align-items: center; justify-content: center; border-right: 1px solid #1a237e; }
+        .camera-wrapper {
+            width: 85%; height: 65%; border: 2px solid #4a6cff; border-radius: 20px;
+            overflow: hidden; background: #000; position: relative; box-shadow: 0 0 30px rgba(74, 108, 255, 0.3);
+        }
+        #video { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); filter: contrast(1.1); }
+        .scan-line { position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: #4a6cff; box-shadow: 0 0 15px #4a6cff; animation: scan 3s linear infinite; }
+        @keyframes scan { 0% { top: 0; } 100% { top: 100%; } }
+        .status-overlay { position: absolute; bottom: 15px; left: 15px; color: #4a6cff; font-family: monospace; background: rgba(0,0,0,0.6); padding: 10px; border-radius: 5px; }
+
+        /* RIGHT SIDE: INTERFACE */
+        .right { width: 50%; display: flex; flex-direction: column; justify-content: center; padding: 60px; background: rgba(10,12,40,0.8); }
+        h1 { font-size: 38px; margin-bottom: 20px; }
+        label { display: block; margin-top: 20px; font-size: 11px; text-transform: uppercase; color: #8a2be2; font-weight: bold; }
+        input { width: 100%; padding: 15px; margin-top: 8px; background: rgba(255,255,255,0.05); border: 1px solid #1a237e; border-radius: 8px; color: white; outline: none; }
+        .btn { margin-top: 30px; padding: 18px; border: none; border-radius: 50px; background: linear-gradient(90deg,#4a6cff,#8a2be2); color: white; font-weight: bold; cursor: pointer; }
+        .result { margin-top: 30px; padding: 20px; background: rgba(255,255,255,0.05); border-left: 4px solid #4a6cff; min-height: 80px; font-style: italic; }
+        #ai-feedback { color: #00ffcc; font-size: 13px; margin-top: 5px; }
+    </style>
 </head>
 <body>
 
-<div id="intro">
-    <div class="cinema-content">
+    <div id="intro">
         <h1 class="cinema-title">SorryNotSorry</h1>
-        <div class="cinema-line"></div>
-        <p class="cinema-sub">Because life happens… we generate excuses.</p>
     </div>
-</div>
 
-<div class="left">
-    <div class="emoji-container">
-        <span>😩</span><span>😤</span><span>😵</span>
-        <span>🤯</span><span>😓</span><span>🙄</span>
+    <div class="left">
+        <div class="camera-wrapper">
+            <video id="video" autoplay playsinline muted></video>
+            <div class="scan-line"></div>
+            <div class="status-overlay">
+                <p id="ai-status">INITIALIZING VISION...</p>
+                <p id="ai-feedback">Please wait...</p>
+            </div>
+        </div>
     </div>
-</div>
 
-<div class="right">
-    <div class="tag">SorryNotSorry</div>
-    <h1>Oops! Need an Excuse?</h1>
-    <p>Type your specific situation and select your audience.</p>
+    <div class="right">
+        <div style="font-size: 12px; color: #4a6cff;">MODULE: DEFENSE_GEN_V3</div>
+        <h1>AI Excuse Coach</h1>
+        
+        <label>The Situation</label>
+        <input type="text" id="situation" placeholder="e.g., My internet went down during the final">
 
-    <label>Situation:</label>
-    <input type="text" id="situation" placeholder="e.g., Cat locked me in the bathroom" style="padding:12px; margin-bottom:20px; border-radius:10px; border:none; width: 100%;">
+        <label>The Audience</label>
+        <input type="text" id="audience" placeholder="e.g., Prof. Smith, HR Manager">
 
-    <label>Audience:</label>
-    <select id="audience">
-        <option value="teacher">Teacher</option>
-        <option value="boss">Boss</option>
-        <option value="friend">Friend</option>
-        <option value="partner">Partner</option>
-    </select>
+        <button class="btn" onclick="generateExcuse()">GENERATE EXCUSE</button>
 
-    <button class="btn" onclick="generateExcuse()">GENERATE</button>
+        <div class="result" id="result">Awaiting input...</div>
+    </div>
 
-    <div class="result" id="result"></div>
-    <div class="score" id="score"></div>
-</div>
+    <script>
+        const MODEL_URL = 'https://raw.githubusercontent.com/justadudewhohacks/face-api.js/master/weights';
 
-<script src="script.js"></script>
+        // 1. Initialize Camera and AI Vision
+        async function initAI() {
+            try {
+                await Promise.all([
+                    faceapi.nets.tinyFaceDetector.loadFromUri(MODEL_URL),
+                    faceapi.nets.faceExpressionNet.loadFromUri(MODEL_URL)
+                ]);
+                
+                const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                const video = document.getElementById('video');
+                video.srcObject = stream;
+
+                video.onplay = () => {
+                    setInterval(async () => {
+                        const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceExpressions();
+                        if (detections.length > 0) {
+                            updateCoach(detections[0].expressions);
+                        }
+                    }, 300);
+                };
+            } catch (err) {
+                document.getElementById('ai-status').innerText = "VISION ERROR";
+            }
+        }
+
+        function updateCoach(expressions) {
+            const emotion = Object.keys(expressions).reduce((a, b) => expressions[a] > expressions[b] ? a : b);
+            const status = document.getElementById('ai-status');
+            const feedback = document.getElementById('ai-feedback');
+            
+            status.innerText = `EMOTION: ${emotion.toUpperCase()}`;
+            
+            const advice = {
+                neutral: "Look more regretful! You're too calm.",
+                happy: "Stop smiling! This is a crisis!",
+                sad: "Good, that look of despair is convincing.",
+                angry: "Too much aggression. Tone it down.",
+                surprised: "You look guilty. Keep it steady.",
+                fearful: "Perfect. You look terrified of the consequences."
+            };
+            feedback.innerText = advice[emotion] || "Analyzing face...";
+        }
+
+        // 2. Generation Logic
+        async function generateExcuse() {
+            const situation = document.getElementById("situation").value;
+            const audience = document.getElementById("audience").value;
+            const resultDiv = document.getElementById("result");
+
+            if (!situation || !audience) return;
+
+            resultDiv.innerText = "Syncing lie with facial data... 🧠";
+
+            try {
+                const response = await fetch("http://localhost:3000/generate", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ situation, audience })
+                });
+                const data = await response.json();
+                resultDiv.innerText = data.excuse || "AI timed out.";
+            } catch (e) {
+                resultDiv.innerText = "Server offline. Run server.js!";
+            }
+        }
+
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                document.getElementById("intro").classList.add("fade-out");
+                initAI();
+            }, 3000);
+        });
+    </script>
 </body>
 </html>

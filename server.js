@@ -10,50 +10,42 @@ app.use(cors());
 
 const hf = new HfInference(process.env.HF_TOKEN);
 
-// Function to fix stuck words if the AI fails
-function fixStuckWords(text) {
-    // 1. Adds space before any Capital letter that follows a lowercase (CamelCaseFix)
-    let fixed = text.replace(/([a-z])([A-Z])/g, '$1 $2');
-    
-    // 2. Adds space after punctuation if missing
-    fixed = fixed.replace(/([.!?])([A-Za-z0-9])/g, '$1 $2');
-    
-    return fixed;
+function fixSpacing(text) {
+    if (!text) return '';
+    return text
+        .replace(/\|/g, ' ')                   // Pipes to spaces
+        .replace(/([a-z])([A-Z])/g, '$1 $2')   // CamelCase fix
+        .replace(/([,.;!])([A-Za-z])/g, '$1 $2') // Punctuation fix
+        .replace(/\s+/g, ' ')                  // Clean double spaces
+        .trim();
 }
 
 app.post('/generate', async (req, res) => {
     const { situation, audience } = req.body;
-
     try {
-        // We switch to Llama-3.1-8B-Instruct (More stable formatting)
         const response = await hf.chatCompletion({
             model: "meta-llama/Llama-3.1-8B-Instruct",
             messages: [
                 {
                     role: "system",
-                    content: "You are a creative assistant. You MUST use standard spaces between every word. Provide only the excuse."
+                    content: "You are a witty assistant. Speak only using pipes instead of spaces. Example: I|am|sorry|for|this. Write exactly two sentences. Do not use Dear or Sincerely."
                 },
                 {
                     role: "user",
-                    content: `Short excuse for my ${audience} regarding: ${situation}. Use spaces!`
+                    content: `Two-sentence excuse for my ${audience} regarding: ${situation}. Separate|every|word|with|a|pipe.`
                 }
             ],
-            max_tokens: 60,
-            temperature: 0.6
+            max_tokens: 120,
+            temperature: 0.4
         });
 
-        let aiExcuse = response.choices[0].message.content.trim();
-
-        // Run our recovery function just in case
-        const cleanExcuse = fixStuckWords(aiExcuse);
-
-        console.log("Final Output:", cleanExcuse);
-        res.json({ excuse: cleanExcuse });
-
+        let rawText = response?.choices?.[0]?.message?.content || '';
+        rawText = rawText.replace(/(Dear|Sincerely|Hi|Thanks|Best|Regards)[^.!?]*/gi, '');
+        const finalExcuse = fixSpacing(rawText);
+        res.json({ excuse: finalExcuse });
     } catch (error) {
-        console.error("Error:", error.message);
-        res.status(500).json({ error: "The AI is thinking too hard. Try again!" });
+        res.status(500).json({ error: "API Error" });
     }
 });
 
-app.listen(3000, () => console.log("🚀 Server running on http://localhost:3000"));
+app.listen(3000, () => console.log("🚀 Server running on port 3000"));
