@@ -2,7 +2,7 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# SorryNotSorry 🎯
 
 ## Basic Details
 
@@ -109,7 +109,8 @@ Greeting Stripper: Automatically removes formal headers (Dear, Sincerely) to kee
 
 **System Architecture:**
 
-![Architecture Diagram](docs/architecture.png)
+![5ed38046-3efe-465b-9c8a-3784c45beb0e](https://github.com/user-attachments/assets/1593f7d7-01e1-4bc6-bf29-1aa5ce54a377)
+
 The architecture of SorryNotSorry follows a classic Client-Server model integrated with two distinct layers of Artificial Intelligence. It is designed to bridge the gap between physical human emotion and digital text generation.
 
 1. The Frontend (Client Layer)
@@ -135,7 +136,8 @@ Constraint Enforcement: The architecture uses "System Instructions" to force the
 
 **Application Workflow:**
 
-![Workflow](docs/workflow.png)
+![7fdeff6c-c334-4f02-bd4a-93dfde43e094](https://github.com/user-attachments/assets/73843971-a10b-4974-976e-02e4bc546215)
+
 The workflow of SorryNotSorry is a synchronized loop of data moving from your face to the server and back as a tailored excuse. It can be broken down into four distinct stages:
 
 1. Biometric Calibration (Sense)
@@ -208,7 +210,50 @@ The raw AI response (e.g., I|am|so|sorry|my|car|died.) returns to your server. T
 
 #### App Flow Diagram
 
-![App Flow](docs/app-flow.png)
+![34465017-20cc-4c14-af3a-66d8a7666503](https://github.com/user-attachments/assets/dbe438ba-1a18-4ca3-a31c-692280005546)
+
+The app flow of SorryNotSorry follows a linear, circular path where the human face and the AI brain interact in a continuous feedback loop.
+
+Phase 1: The Initialization (The Handshake)
+When the user opens the URL, the browser performs a hardware and software "handshake."
+
+Model Loading: The frontend fetches the pre-trained weights for face-api.js (Tiny Face Detector and Face Expression Net).
+
+Permission Request: The browser asks the user for webcam access.
+
+Video Stream: Once allowed, the webcam feed is piped into the <video> element, and the AI scan-line animation begins.
+
+Phase 2: Live Analysis (The Feedback Loop)
+Before the user even types, the app is already working.
+
+Frame Capture: The code grabs a frame from the video feed every 300ms.
+
+Emotion Extraction: The AI analyzes facial landmarks and assigns a probability to 7 core emotions.
+
+Live Coaching: The UI updates the "AI Status" overlay, telling the user to "Look more sad" or "Stop smiling." This ensures the user's physical "performance" is ready for the excuse generation.
+
+Phase 3: The Generation Request (The Data Payload)
+When the user clicks "Generate Defense," the following data flow occurs:
+
+Bundle: The frontend packages the situation, audience, and the current emotion into a JSON object.
+
+Transmission: This payload is sent via a POST request to the Node.js backend.
+
+Tone Selection: The backend reads the emotion and chooses a "Tone" (e.g., Sad face = "Heartbreaking" tone).
+
+Phase 4: Inference & Sanitization (The Brain)
+Prompt Engineering: The backend sends a strict prompt to the Llama-3.1 model.
+
+Pipe Delimitation: The AI responds with words separated by pipes (|) to prevent it from wandering off-topic.
+
+Scrubbing: The backend runs the fixSpacing function to remove pipes and formal fluff (like "Sincerely").
+
+Phase 5: Final Delivery (The Output)
+Response: The cleaned text is sent back to the frontend.
+
+Display: The result box updates with the polished excuse.
+
+Reset: The user can read the excuse, adjust their face, and try again, starting the loop over.
 
 
 
