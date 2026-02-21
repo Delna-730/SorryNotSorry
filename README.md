@@ -1,4 +1,4 @@
-<p align="center">
+![WhatsApp Image 2026-02-21 at 8 38 22 AM](https://github.com/user-attachments/assets/5c476f6d-cd79-4bf0-94e3-d1a8deb195d6)<p align="center">
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
@@ -9,53 +9,64 @@
 ### Team Name: Ciphera
 
 ### Team Members
-- Member 1: [Gifty Paul] - [Viswajyothi College of Engineering And Technology]
-- Member 2: [Delna Jeeson] - [Viswajyothi College of Engineering And Technology]
+- Member 1: Gifty Paul - Viswajyothi College of Engineering And Technology
+- Member 2: Delna Jeeson - Viswajyothi College of Engineering And Technology
 
 ### Hosted Project Link
-[mention your project hosted link here]
+(https://drive.google.com/file/d/1L8TYDTnsKtsDexJqczprM-dF3kdNI5gV/view?usp=sharing)
 
 ### Project Description
-[SorryNotSorry is a lighthearted, AI-powered excuse generator designed to help users navigate awkward social or professional situations with ease. By leveraging Large Language Models (LLMs), the app crafts creative, believable, two-sentence excuses tailored to specific audiences—whether it’s a teacher, a boss, or a disappointed friend. The app even provides a "Believability Score" to let you know if your excuse is likely to fly or if you’re flying too close to the sun.]
+SorryNotSorry is a lighthearted, AI-powered excuse generator designed to help users navigate awkward social or professional situations with ease. By leveraging Large Language Models (LLMs), the app crafts creative, believable, two-sentence excuses tailored to specific audiences—whether it’s a teacher, a boss, or a disappointed friend. The app even provides a "Believability Score" to let you know if your excuse is likely to fly or if you’re flying too close to the sun.
 
 ### The Problem statement
-[Let’s face it: life happens, but coming up with a convincing reason why you missed a deadline or skipped an event is stressful. People often struggle to strike the right balance between being "too vague" and "too detailed," leading to excuses that sound suspicious or unprofessional. Additionally, some AI models have a tendency to output "squashed" text without proper spacing when asked for short-form content, making the resulting message difficult to read or copy-paste.]
+Let’s face it: life happens, but coming up with a convincing reason why you missed a deadline or skipped an event is stressful. People often struggle to strike the right balance between being "too vague" and "too detailed," leading to excuses that sound suspicious or unprofessional. Additionally, some AI models have a tendency to output "squashed" text without proper spacing when asked for short-form content, making the resulting message difficult to read or copy-paste.
 
 ### The Solution
-[SorryNotSorry solves this by using a refined AI prompt strategy and a custom "Super Space Fixer" algorithm to ensure every excuse is perfectly formatted and grammatically sound.
+SorryNotSorry solves this by using a refined AI prompt strategy and a custom "Super Space Fixer" algorithm to ensure every excuse is perfectly formatted and grammatically sound.
 
 Tailored Generation: Users input their specific situation (e.g., "missing assignment") and their audience (e.g., "teacher") to get a context-aware response.
 
 Witty & Concise: The system is hard-coded to deliver exactly two sentences, avoiding the "AI fluff" of typical chatbot responses.
 
-Formatting Reliability: The backend includes custom regex logic to repair common tokenization errors, ensuring "I'mtrulyformissing" becomes "I'm truly sorry for missing" every single time.]
+Formatting Reliability: The backend includes custom regex logic to repair common tokenization errors, ensuring "I'mtrulyformissing" becomes "I'm truly sorry for missing" every single time.
 
 ---
 
-## Technical Details
 
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [html,css,javascript,node.js]
-- Frameworks used: [express.js]
-- Libraries used: [hugging face,]
-- Tools used: [VS Code (Editor), Hugging Face Inference API, npm (Package Manager)]
+- Languages used: html,css,javascript,node.js
+- Frameworks used: express.js
+- Libraries used: hugging face
+- Tools used: VS Code (Editor), Hugging Face Inference API, npm (Package Manager)
 
-**For Hardware:**
-- Main components: [List main components]
-- Specifications: [Technical specifications]
-- Tools required: [List tools needed]
 
 ---
 
 ## Features
 
 List the key features of your project:
-- Feature 1: [Description]
-- Feature 2: [Description]
-- Feature 3: [Description]
-- Feature 4: [Description]
+- Real-Time Biometric Emotion Tracking : The project uses high-speed facial landmark detection to analyze the user's honesty and "performance."
+
+Expression Analysis: Detects emotions like sadness, fear, happiness, and anger in real-time.
+
+Live Coaching Feedback: Provides a HUD-style (Heads-Up Display) overlay that gives instructions such as "Stop smiling" or "Look more regretful" to ensure the user’s face matches the lie they are telling.
+- Emotion-Driven Tone Mapping :Unlike standard AI generators, this project uses your physical state to determine the linguistic style of the output.
+
+Dynamic Prompting: The backend automatically adjusts the AI's "temperature" and "system instructions" based on the detected emotion.
+
+Tone Profiles: Maps Sadness to "Heartbreaking/Desperate," Neutral to "Professional/Corporate," and Fear to "Urgent/Apologetic."
+- Contextual Natural Language Generation:Leveraging the Llama-3.1-8B model, the project generates excuses that are specifically tailored to the user's specific scenario.
+
+Audience Customization: Handles any typed input, from formal (Boss/Professor) to informal (Friends/Neighbors).
+
+Two-Sentence Constraint: Uses strict "Few-Shot" prompting to ensure the AI remains concise and avoids common "AI-isms" like starting with "I hope this finds you well."
+- Robust Text Sanitization : The system includes a custom cleaning pipeline to ensure the output is ready for immediate use.
+
+Pipe Delimiter Logic: Forces the AI to generate text separated by pipes (|) to prevent formatting hallucinations, which are then cleaned by the backend into perfect prose.
+
+Greeting Stripper: Automatically removes formal headers (Dear, Sincerely) to keep the generated text ready for instant messaging or email.
 
 ---
 
@@ -73,13 +84,7 @@ List the key features of your project:
 [node server.js]
 ```
 
-### For Hardware:
 
-#### Components Required
-[List all components needed with specifications]
-
-#### Circuit Setup
-[Explain how to set up the circuit]
 
 ---
 
@@ -89,53 +94,70 @@ List the key features of your project:
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+![WhatsApp Image 2026-02-21 at 8 38 22 AM](https://github.com/user-attachments/assets/52715552-40c9-4274-aa32-c790998d0c69)
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+
+![WhatsApp Image 2026-02-21 at 8 38 23 AM (1)](https://github.com/user-attachments/assets/d5b95567-b556-4c66-878a-db3053f12e39)
+
+
+![WhatsApp Image 2026-02-21 at 8 38 23 AM](https://github.com/user-attachments/assets/13d4394f-7558-4795-934c-a8cd8143a8ee)
+
+
 
 #### Diagrams
 
 **System Architecture:**
 
 ![Architecture Diagram](docs/architecture.png)
-*Explain your system architecture - components, data flow, tech stack interaction*
+The architecture of SorryNotSorry follows a classic Client-Server model integrated with two distinct layers of Artificial Intelligence. It is designed to bridge the gap between physical human emotion and digital text generation.
+
+1. The Frontend (Client Layer)
+Built with HTML5, CSS3, and JavaScript, the frontend acts as the sensory organ of the project.
+
+Vision Engine: It utilizes face-api.js (running on TensorFlow.js) to perform Edge Computing. This means your facial expressions are analyzed directly in your browser rather than being sent as a video stream to a server.
+
+State Management: The client tracks your "Live Emotion" (e.g., sad or neutral) and holds it in a local variable, ready to be bundled with your text inputs.
+
+2. The Backend (Server Layer)
+The "Brain" of the operation is a Node.js environment using the Express framework.
+
+API Gateway: It hosts a single POST endpoint (/generate) that receives the situation, audience, and detected emotion.
+
+Contextual Logic: Before talking to the AI, the server runs a "Tone Selector." It maps the physical emotion to a linguistic style (e.g., a fearful face triggers a deeply apologetic tone).
+
+3. The Inference Layer (AI Model)
+This is the external intelligence provided by Hugging Face.
+
+LLM (Llama-3.1-8B): The server sends a structured prompt to the Llama model.
+
+Constraint Enforcement: The architecture uses "System Instructions" to force the AI to act as a witty assistant and follow strict formatting rules (like using pipes | as delimiters), which ensures the output is always consistent and predictable.
 
 **Application Workflow:**
 
 ![Workflow](docs/workflow.png)
-*Add caption explaining your workflow*
+The workflow of SorryNotSorry is a synchronized loop of data moving from your face to the server and back as a tailored excuse. It can be broken down into four distinct stages:
+
+1. Biometric Calibration (Sense)
+When the app launches, it initializes the webcam and loads the Tiny Face Detector models. The browser begins a continuous loop (every 300–500ms), scanning the video feed for facial landmarks. This allows the system to determine your current "emotional state" without sending any actual video data to the cloud.
+
+2. Contextual Packaging (Input)
+Once you type in your situation and audience, you trigger the "Generate" function. The app bundles three pieces of data into a single JSON object:
+
+The What: Your situation (e.g., "Car broke down").
+
+The Who: Your audience (e.g., "My Teacher").
+
+The Mood: Your detected emotion (e.g., "Sad").
+
+3. Neural Processing (Inference)
+The Node.js backend receives this bundle and acts as a translator. It maps your Mood to a specific Tone (like "apologetic" or "assertive"). It then constructs a prompt for the Llama-3.1 model on Hugging Face. The model generates a response using pipes (|) as placeholders to ensure the AI doesn't add unwanted fluff like "Dear" or "Sincerely."
+
+4. Text Sanitization & Delivery (Output)
+The raw AI response (e.g., I|am|so|sorry|my|car|died.) returns to your server. The fixSpacing function scrubs the pipes, cleans up any weird formatting, and sends a polished, human-readable excuse back to your screen.
 
 ---
 
-### For Hardware:
-
-#### Schematic & Circuit
-
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
-#### Build Photos
-
-![Team](Add photo of your team here)
-
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
-
----
 
 ## Additional Documentation
 
@@ -143,283 +165,95 @@ List the key features of your project:
 
 #### API Documentation
 
-**Base URL:** `https://api.yourproject.com`
+**Base URL:** `'https://justadudewhohacks.github.io/face-api.js/weights'
+`
 
 ##### Endpoints
 
 **GET /api/endpoint**
-- **Description:** [What it does]
+- **Description:** A simple heartbeat check to ensure the Node.js server is running and the Hugging Face Inference connection is active.
 - **Parameters:**
-  - `param1` (string): [Description]
-  - `param2` (integer): [Description]
+  - None
 - **Response:**
 ```json
 {
   "status": "success",
-  "data": {}
+  "message": "Backend is online and neural sensors are calibrated",
+  "timestamp": "2023-10-27T10:00:00Z"
 }
 ```
 
 **POST /api/endpoint**
-- **Description:** [What it does]
+- **Description:** Processes the user's situation and audience along with detected facial expressions to generate a contextually aware, two-sentence excuse using the Llama-3.1 model.
 - **Request Body:**
 ```json
 {
-  "field1": "value1",
-  "field2": "value2"
+  "situation": "My internet went down during the final",
+  "audience": "Prof. Smith",
+  "emotion": "sad"
 }
 ```
 - **Response:**
 ```json
 {
-  "status": "success",
-  "message": "Operation completed"
+  "excuse": "I am incredibly sorry about the technical failure during the exam. My connection dropped unexpectedly and I am working to resolve it immediately."
 }
 ```
 
-[Add more endpoints as needed...]
+
 
 ---
 
-### For Mobile Apps:
+
 
 #### App Flow Diagram
 
 ![App Flow](docs/app-flow.png)
-*Explain the user flow through your application*
 
-#### Installation Guide
 
-**For Android (APK):**
-1. Download the APK from [Release Link]
-2. Enable "Install from Unknown Sources" in your device settings:
-   - Go to Settings > Security
-   - Enable "Unknown Sources"
-3. Open the downloaded APK file
-4. Follow the installation prompts
-5. Open the app and enjoy!
-
-**For iOS (IPA) - TestFlight:**
-1. Download TestFlight from the App Store
-2. Open this TestFlight link: [Your TestFlight Link]
-3. Click "Install" or "Accept"
-4. Wait for the app to install
-5. Open the app from your home screen
-
-**Building from Source:**
-```bash
-# For Android
-flutter build apk
-# or
-./gradlew assembleDebug
-
-# For iOS
-flutter build ios
-# or
-xcodebuild -workspace App.xcworkspace -scheme App -configuration Debug
-```
 
 ---
 
-### For Hardware Projects:
 
-#### Bill of Materials (BOM)
-
-| Component | Quantity | Specifications | Price | Link/Source |
-|-----------|----------|----------------|-------|-------------|
-| Arduino Uno | 1 | ATmega328P, 16MHz | ₹450 | [Link] |
-| LED | 5 | Red, 5mm, 20mA | ₹5 each | [Link] |
-| Resistor | 5 | 220Ω, 1/4W | ₹1 each | [Link] |
-| Breadboard | 1 | 830 points | ₹100 | [Link] |
-| Jumper Wires | 20 | Male-to-Male | ₹50 | [Link] |
-| [Add more...] | | | | |
-
-**Total Estimated Cost:** ₹[Amount]
-
-#### Assembly Instructions
-
-**Step 1: Prepare Components**
-1. Gather all components listed in the BOM
-2. Check component specifications
-3. Prepare your workspace
-![Step 1](images/assembly-step1.jpg)
-*Caption: All components laid out*
-
-**Step 2: Build the Power Supply**
-1. Connect the power rails on the breadboard
-2. Connect Arduino 5V to breadboard positive rail
-3. Connect Arduino GND to breadboard negative rail
-![Step 2](images/assembly-step2.jpg)
-*Caption: Power connections completed*
-
-**Step 3: Add Components**
-1. Place LEDs on breadboard
-2. Connect resistors in series with LEDs
-3. Connect LED cathodes to GND
-4. Connect LED anodes to Arduino digital pins (2-6)
-![Step 3](images/assembly-step3.jpg)
-*Caption: LED circuit assembled*
-
-**Step 4: [Continue for all steps...]**
-
-**Final Assembly:**
-![Final Build](images/final-build.jpg)
-*Caption: Completed project ready for testing*
-
----
-
-### For Scripts/CLI Tools:
-
-#### Command Reference
-
-**Basic Usage:**
-```bash
-python script.py [options] [arguments]
-```
-
-**Available Commands:**
-- `command1 [args]` - Description of what command1 does
-- `command2 [args]` - Description of what command2 does
-- `command3 [args]` - Description of what command3 does
-
-**Options:**
-- `-h, --help` - Show help message and exit
-- `-v, --verbose` - Enable verbose output
-- `-o, --output FILE` - Specify output file path
-- `-c, --config FILE` - Specify configuration file
-- `--version` - Show version information
-
-**Examples:**
-
-```bash
-# Example 1: Basic usage
-python script.py input.txt
-
-# Example 2: With verbose output
-python script.py -v input.txt
-
-# Example 3: Specify output file
-python script.py -o output.txt input.txt
-
-# Example 4: Using configuration
-python script.py -c config.json --verbose input.txt
-```
-
-#### Demo Output
-
-**Example 1: Basic Processing**
-
-**Input:**
-```
-This is a sample input file
-with multiple lines of text
-for demonstration purposes
-```
-
-**Command:**
-```bash
-python script.py sample.txt
-```
-
-**Output:**
-```
-Processing: sample.txt
-Lines processed: 3
-Characters counted: 86
-Status: Success
-Output saved to: output.txt
-```
-
-**Example 2: Advanced Usage**
-
-**Input:**
-```json
-{
-  "name": "test",
-  "value": 123
-}
-```
-
-**Command:**
-```bash
-python script.py -v --format json data.json
-```
-
-**Output:**
-```
-[VERBOSE] Loading configuration...
-[VERBOSE] Parsing JSON input...
-[VERBOSE] Processing data...
-{
-  "status": "success",
-  "processed": true,
-  "result": {
-    "name": "test",
-    "value": 123,
-    "timestamp": "2024-02-07T10:30:00"
-  }
-}
-[VERBOSE] Operation completed in 0.23s
-```
-
---
 
 ## Project Demo
 
 ### Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
+[https://drive.google.com/file/d/1L8TYDTnsKtsDexJqczprM-dF3kdNI5gV/view?usp=sharing](https://drive.google.com/file/d/1L8TYDTnsKtsDexJqczprM-dF3kdNI5gV/view?usp=sharing)
 
-*Explain what the video demonstrates - key features, user flow, technical highlights*
+This project, SorryNotSorry, is an interactive AI-powered "Excuse Coach." It combines real-time facial expression recognition with a Large Language Model (LLM) to help users craft the perfect excuse for any situation.
 
-### Additional Demos
-[Add any extra demo materials/links - Live site, APK download, online demo, etc.]
+How it Works
+The project is split into two main parts:
 
----
+The Vision System (Frontend): Using a library called face-api.js, the app accesses your webcam to analyze your facial expressions. It detects whether you look happy, sad, angry, or neutral. It then gives you live feedback (e.g., "Stop smiling! This is a crisis!") to help you maintain a "believable" face for your excuse.
 
-## AI Tools Used (Optional - For Transparency Bonus)
+The Brain (Backend): A Node.js server connects to the Llama-3.1 model via Hugging Face. When you type in your situation (e.g., "I'm late") and your audience (e.g., "My Boss"), the backend combines that info with your current emotion.
 
-If you used AI tools during development, document them here for transparency:
+Key Technical Features
+Emotion-Aware Generation: The AI changes its tone based on your face. If you look sad, it writes a "heartbreaking" excuse; if you look neutral, it stays professional.
 
-**Tool Used:** [e.g., GitHub Copilot, v0.dev, Cursor, ChatGPT, Claude]
+Real-time Processing: The frontend runs a continuous loop to track your face without lagging the UI.
 
-**Purpose:** [What you used it for]
-- Example: "Generated boilerplate React components"
-- Example: "Debugging assistance for async functions"
-- Example: "Code review and optimization suggestions"
+Structured Output: The backend uses custom logic (like "pipes instead of spaces") to force the AI to follow strict formatting rules before cleaning the text for the user.
 
-**Key Prompts Used:**
-- "Create a REST API endpoint for user authentication"
-- "Debug this async function that's causing race conditions"
-- "Optimize this database query for better performance"
+The Workflow
+Input: You provide the Who and the What.
 
-**Percentage of AI-generated code:** [Approximately X%]
+Analysis: The AI sees the How (your expression).
 
-**Human Contributions:**
-- Architecture design and planning
-- Custom business logic implementation
-- Integration and testing
-- UI/UX design decisions
+Output: You get a 2-sentence, tailor-made excuse ready to use.
 
-*Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!*
 
----
+
 
 ## Team Contributions
 
-- [Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-- [Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-- [Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+- Delna Jeeson:  Frontend development, API integration
+- Gifty Paul: Backend development, camera initialization
 
 ---
 
-## License
-
-This project is licensed under the [LICENSE_NAME] License - see the [LICENSE](LICENSE) file for details.
-
-**Common License Options:**
-- MIT License (Permissive, widely used)
-- Apache 2.0 (Permissive with patent grant)
-- GPL v3 (Copyleft, requires derivative works to be open source)
 
 ---
 
