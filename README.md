@@ -6,23 +6,29 @@
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: Ciphera
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: [Gifty Paul] - [Viswajyothi College of Engineering And Technology]
+- Member 2: [Delna Jeeson] - [Viswajyothi College of Engineering And Technology]
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+[SorryNotSorry is a lighthearted, AI-powered excuse generator designed to help users navigate awkward social or professional situations with ease. By leveraging Large Language Models (LLMs), the app crafts creative, believable, two-sentence excuses tailored to specific audiences—whether it’s a teacher, a boss, or a disappointed friend. The app even provides a "Believability Score" to let you know if your excuse is likely to fly or if you’re flying too close to the sun.]
 
 ### The Problem statement
-[What problem are you solving?]
+[Let’s face it: life happens, but coming up with a convincing reason why you missed a deadline or skipped an event is stressful. People often struggle to strike the right balance between being "too vague" and "too detailed," leading to excuses that sound suspicious or unprofessional. Additionally, some AI models have a tendency to output "squashed" text without proper spacing when asked for short-form content, making the resulting message difficult to read or copy-paste.]
 
 ### The Solution
-[How are you solving it?]
+[SorryNotSorry solves this by using a refined AI prompt strategy and a custom "Super Space Fixer" algorithm to ensure every excuse is perfectly formatted and grammatically sound.
+
+Tailored Generation: Users input their specific situation (e.g., "missing assignment") and their audience (e.g., "teacher") to get a context-aware response.
+
+Witty & Concise: The system is hard-coded to deliver exactly two sentences, avoiding the "AI fluff" of typical chatbot responses.
+
+Formatting Reliability: The backend includes custom regex logic to repair common tokenization errors, ensuring "I'mtrulyformissing" becomes "I'm truly sorry for missing" every single time.]
 
 ---
 
@@ -31,10 +37,10 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
-- Libraries used: [e.g., axios, pandas, JUnit]
-- Tools used: [e.g., VS Code, Git, Docker]
+- Languages used: [html,css,javascript,node.js]
+- Frameworks used: [express.js]
+- Libraries used: [hugging face,]
+- Tools used: [VS Code (Editor), Hugging Face Inference API, npm (Package Manager)]
 
 **For Hardware:**
 - Main components: [List main components]
@@ -59,12 +65,12 @@ List the key features of your project:
 
 #### Installation
 ```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
+[npm install express dotenv cors @huggingface/inference]
 ```
 
 #### Run
 ```bash
-[Run commands - e.g., npm start, python app.py]
+[node server.js]
 ```
 
 ### For Hardware:
@@ -356,7 +362,7 @@ python script.py -v --format json data.json
 [VERBOSE] Operation completed in 0.23s
 ```
 
----
+--
 
 ## Project Demo
 
